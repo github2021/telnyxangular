@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Comment } from '../../../../shared/models/comment'
 
 @Component({
   selector: 'app-blog-comments-show',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogCommentsShowComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+  @Input() comment: Comment
+
+  constructor() {}
+
+  ngOnInit() {}
 
 }

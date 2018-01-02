@@ -2,7 +2,22 @@
 	{{blog.title}}
 </div>
 
-<app-blog-comments-show></app-blog-comments-show>
-<app-blog-comments-post></app-blog-comments-post>
+<div *ngFor="let comment of comments">
+<app-blog-comments-show [comment]="comment"></app-blog-comments-show>
+</div>
+
+<app-blog-comments-post 
+
+[blogId]="(blog$|async)?.id" 
+(comment)="commentSentFunction($event)"
+(success)="commentSuccessful($event)"
+>
+	
+</app-blog-comments-post>
+
+
+
+<div *ngIf="commentSent"> Comment Sent </div>
+
 <app-blog-comments-post-show-errors></app-blog-comments-post-show-errors>
 

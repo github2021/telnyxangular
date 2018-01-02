@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-blog-comments-post',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogCommentsPostComponent implements OnInit {
 
-  constructor() { }
+  @Input() blogId: number
+  @Output() comment: EventEmitter < Comment > = new EventEmitter<Comment>()
+  @Output() success: EventEmitter < boolean > = new EventEmitter<boolean>()
+
+    constructor() {}
 
   ngOnInit() {
+  }
+
+  emitthis() {
+  	  	//this.bob.emit(34898934984)
+  	  	//console.log("kslksdkldslk")
+  	  	let comment = new Comment()
+  	  	this.comment.emit(comment)
+  	  	this.success.emit(true)
   }
 
 }
