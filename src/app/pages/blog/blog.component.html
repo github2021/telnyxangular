@@ -1,3 +1,3 @@
-<p>
-  blog works!
-</p>
+<div *ngIf="blog$ | async as blog">
+	{{blog.title}}
+</div>
