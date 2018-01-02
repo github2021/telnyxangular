@@ -1,3 +1,8 @@
 <div *ngIf="blog$ | async as blog">
 	{{blog.title}}
 </div>
+
+<app-blog-comments-show></app-blog-comments-show>
+<app-blog-comments-post></app-blog-comments-post>
+<app-blog-comments-post-show-errors></app-blog-comments-post-show-errors>
+
