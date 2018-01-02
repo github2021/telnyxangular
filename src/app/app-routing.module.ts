@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'blog-feed', component: BlogFeedComponent },
-  { path: 'blog-feed/blog/:id', component: BlogComponent },
+  { path: 'blog-feed/blog/:id/:slug', component: BlogComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

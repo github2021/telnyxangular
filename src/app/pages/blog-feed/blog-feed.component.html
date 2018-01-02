@@ -2,5 +2,5 @@
   blog-feed works!
 </p>
 <div *ngFor="let blog of blogs">
-  <a routerLink="blog/{{blog.id}}">{{blog.title}}</a>
+  <a routerLink="blog/{{blog.id}}/{{blog.slug}}">{{blog.title}}</a>
 </div>
