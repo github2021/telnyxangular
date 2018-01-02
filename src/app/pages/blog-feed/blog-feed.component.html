@@ -1,7 +1,6 @@
 <p>
   blog-feed works!
 </p>
-
 <div *ngFor="let blog of blogs">
-	{{blog.title}}
-	</div>
+  <a routerLink="blog/{{blog.id}}">{{blog.title}}</a>
+</div>
