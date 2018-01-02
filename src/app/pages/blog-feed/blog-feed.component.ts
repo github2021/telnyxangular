@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from '@angular/platform-browser'
+
+import { RestfulApiService } from '../../restful-api.service'
+import { Blog } from '../../shared/models/blog'
 
 @Component({
   selector: 'app-blog-feed',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogFeedComponent implements OnInit {
 
-  constructor() { }
+  blogs: Blog[]
+
+  constructor(
+    private restfulAPIService: RestfulApiService,
+    private title: Title) {}
 
   ngOnInit() {
+  	this.title.setTitle("Blog Feed")
+  	this.getBlogs()
+  }
+
+  getBlogs() {
+    this.restfulAPIService.getBlogs().subscribe(data => {
+      this.blogs = data
+      console.log(data)
+    })
   }
 
 }
