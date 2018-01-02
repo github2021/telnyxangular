@@ -25,7 +25,13 @@ export class RestfulApiService {
   }
 
   public getBlogComments(id: number) {
-  	return this.http.get <Comment[]> (`${API_URL}/comments?postId=${id}`)
+    return this.http.get < Comment[] > (`${API_URL}/comments?postId=${id}`)
   }
+
+  public postComment(comment: Comment): Observable < Comment > {
+    return this.http.post < Comment > (API_URL + '/comments', comment)
+  }
+
+
 
 }
