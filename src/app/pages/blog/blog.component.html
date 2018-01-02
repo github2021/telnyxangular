@@ -1,21 +1,28 @@
 <div *ngIf="blog$ | async as blog">
-	{{blog.title}}
+	{{blog.title}}<br>
+	{{blog.author}}<br>
+	{{blog.publish_date}}<br><br>
+	<div [innerHTML]=blog.content></div>
 </div>
+
+<hr>
+Comments
+<hr>
 
 <div *ngFor="let comment of comments">
 <app-blog-comments-show [comment]="comment"></app-blog-comments-show>
 </div>
 
-<app-blog-comments-post 
+<hr>
 
+<br>
+
+<app-blog-comments-post 
 [blogId]="(blog$|async)?.id" 
 (comment)="commentSentFunction($event)"
 (success)="commentSuccessful($event)"
->
-	
+>	
 </app-blog-comments-post>
-
-
 
 <div *ngIf="commentSent"> Comment Sent </div>
 

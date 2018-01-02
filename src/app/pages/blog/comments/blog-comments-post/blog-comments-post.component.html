@@ -1,3 +1,32 @@
-<button (click)="emitthis()">
-blog comment post {{blogId}}
-</button>
+<form #newComment="ngForm" style="background-color: yellow; margin: 20px">
+
+
+
+    <div>
+        <label>Your Comment</label>
+        <br>
+
+        <textarea style="width:100%; max-width: 800px;" 
+        name="content" 
+        #content_formControl="ngModel" 
+        ngModel 
+        required minlength="10" maxlength="500" pattern="^[\- a-zA-Z0-9!@#$%^&*()_=+?<>.,&quot;\n\r]+$">
+        </textarea>
+
+        <app-blog-comments-post-show-errors [input_formControl]=content_formControl></app-blog-comments-post-show-errors>
+    </div>
+
+
+
+    <div style="margin-bottom: 20px">
+        <label>Your Username</label>
+        <br>
+        <input type="text" name="user" #user_formControl="ngModel" ngModel required minlength="3" maxlength="20" pattern="^[\-a-zA-Z0-9_ ]+$">
+        <app-blog-comments-post-show-errors [input_formControl]=user_formControl></app-blog-comments-post-show-errors>
+    </div>
+
+
+
+    <button (click)="postComment(newComment)">Submit</button>
+
+</form>

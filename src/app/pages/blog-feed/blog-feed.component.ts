@@ -25,7 +25,6 @@ export class BlogFeedComponent implements OnInit {
   getBlogs() {
     this.restfulAPIService.getBlogs().subscribe(data => {
       this.blogs = data
-      console.log(data)
     })
   }
 

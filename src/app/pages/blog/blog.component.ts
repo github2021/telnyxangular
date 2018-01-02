@@ -42,7 +42,6 @@ export class BlogComponent implements OnInit {
   getBlog() {
     this.blog$ = this.restfulAPIService.getBlog(this.blogId)
     this.restfulAPIService.getBlogComments(this.blogId).subscribe(data => {
-      console.log("comments", data)
       this.comments = data
 
     })
@@ -53,7 +52,8 @@ export class BlogComponent implements OnInit {
   }
 
   commentSentFunction(x: any) {
-    console.log(x)
+    //console.log(x)
+    this.comments.push(x)
 
   }
 
