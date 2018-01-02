@@ -12,16 +12,15 @@ const API_URL = "http://localhost:9001"
 export class RestfulApiService {
 
   constructor(private http: HttpClient) {}
-
-
+  
   private sortBlogsByDate(a, b) {
     return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();
   }
-
   public getBlogs() {
-    return this.http.get < Blog[] > (`${API_URL}/posts`)
-      .pipe(map(x => x.sort(this.sortBlogsByDate)));
-
+    return this.http.get < Blog[] > (`${API_URL}/posts`).pipe(map(x => x.sort(this.sortBlogsByDate)))
+  }
+  public getBlog(id: number) {
+    return this.http.get < Blog > (`${API_URL}/posts/` + id)
   }
 
 }
