@@ -11,7 +11,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BlogFeedComponent } from './pages/blog-feed/blog-feed.component';
-import { BlogFeedSummaryComponent } from './pages/blog-feed/blog-feed-summary/blog-feed-summary.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogCommentsShowComponent } from './pages/blog/comments/blog-comments-show/blog-comments-show.component';
 import { BlogCommentsPostComponent } from './pages/blog/comments/blog-comments-post/blog-comments-post.component';
@@ -28,7 +27,6 @@ import { RestfulApiService } from './restful-api.service'
     AboutComponent,
     HomeComponent,
     BlogFeedComponent,
-    BlogFeedSummaryComponent,
     BlogComponent,
     BlogCommentsShowComponent,
     BlogCommentsPostComponent,

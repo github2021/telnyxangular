@@ -32,7 +32,6 @@ ng new telnyxangular --style=scss --routing
 && ng g c pages/about
 && ng g c pages/home
 && ng g c pages/blog-feed
-&& ng g c pages/blog-feed/blog-feed-summary
 && ng g c pages/blog
 && ng g c pages/blog/comments/blog-comments-show
 && ng g c pages/blog/comments/blog-comments-post
