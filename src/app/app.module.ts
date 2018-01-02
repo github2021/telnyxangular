@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +15,8 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { BlogCommentsShowComponent } from './pages/blog/comments/blog-comments-show/blog-comments-show.component';
 import { BlogCommentsPostComponent } from './pages/blog/comments/blog-comments-post/blog-comments-post.component';
 import { BlogCommentsPostShowErrorsComponent } from './pages/blog/comments/blog-comments-post-show-errors/blog-comments-post-show-errors.component';
+
+import { RestfulApiService } from './restful-api.service'
 
 
 @NgModule({
@@ -32,9 +35,10 @@ import { BlogCommentsPostShowErrorsComponent } from './pages/blog/comments/blog-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RestfulApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
