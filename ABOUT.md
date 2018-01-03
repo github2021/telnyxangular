@@ -6,7 +6,7 @@ Completed by Kevin Norton
 
 to start application
 
---> ng run start
+--> npm run start
 
 ## Notes
 
