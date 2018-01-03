@@ -1,10 +1,14 @@
 
-##Log
 
-Modified package.json
+### Telnyx Front End Test
 
+Completed by Kevin Norton
 
-##Notes
+to start application
+
+--> ng run start
+
+## Notes
 
 Blog feed should list all posts and associated title, author, date and description, sorted by publish date from newest first
 Users can view individual blog posts in a separate page
@@ -14,7 +18,7 @@ Two​ ​or​ ​more​ ​distinct​ ​components​ ​demonstrating​ �
 At least​ ​one​ ​unit​ ​test
 
 
-##Further Notes
+## Further Notes
 
 Created basic application with following CLI command
 
