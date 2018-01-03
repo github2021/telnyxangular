@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Title} from '@angular/platform-browser'
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material'
+import { Title } from '@angular/platform-browser'
+import { FormControl } from '@angular/forms'
 
 import { RestfulApiService } from '../../restful-api.service'
 import { Blog } from '../../shared/models/blog'
@@ -12,14 +14,20 @@ import { Blog } from '../../shared/models/blog'
 export class BlogFeedComponent implements OnInit {
 
   blogs: Blog[]
+  option = new FormControl('newest');
+
+  sortingOptions = [
+    { value: 'sort-0', viewValue: 'Newest' },
+    { value: 'sort-1', viewValue: 'Oldest' }
+  ];
 
   constructor(
     private restfulAPIService: RestfulApiService,
     private title: Title) {}
 
   ngOnInit() {
-  	this.title.setTitle("Blog Feed")
-  	this.getBlogs()
+    this.title.setTitle("Blog Feed")
+    this.getBlogs()
   }
 
   getBlogs() {

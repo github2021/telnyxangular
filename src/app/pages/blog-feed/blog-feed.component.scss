@@ -1,0 +1,19 @@
+$margin-bottom: 20px;
+
+
+.col-lg-6 {
+	margin-bottom: $margin-bottom;
+}
+
+.mat-toolbar {
+	margin-bottom: $margin-bottom;
+}
+
+.mat-card {
+	min-height: 210px
+}
+
+button {
+  border: 1px solid lightgrey;
+  margin-bottom: 10px
+}

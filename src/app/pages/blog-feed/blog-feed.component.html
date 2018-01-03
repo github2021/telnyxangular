@@ -1,6 +1,29 @@
-<p>
-  blog-feed works!
-</p>
-<div *ngFor="let blog of blogs">
-  <a routerLink="blog/{{blog.id}}/{{blog.slug}}">{{blog.title}}</a>
+<div class="row margin_1_t">
+  <div class="col-lg-8 display-4 margin_2_b">Blog Feed</div>
+  <div class="col-lg-4 text-right margin_2_b">
+    <mat-form-field>
+      <mat-select placeholder="Sorting Options" [formControl]="option">
+        <mat-option value="newest">Newest</mat-option>
+        <mat-option value="oldest">Oldest</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div class="row">
+  <div *ngFor="let blog of blogs" class="col-lg-6">
+    <mat-card>
+      <a routerLink="blog/{{blog.id}}/{{blog.slug}}">
+        <mat-card-title>{{blog.title}}</mat-card-title>
+      </a>
+      <mat-card-subtitle>Posted by: {{blog.author}}
+        <br>Published: {{blog.publish_date}}</mat-card-subtitle>
+      <mat-card-content>
+        {{blog.description}}
+      </mat-card-content>
+      <div class="margin_1_b text-right">
+        <button mat-button routerLink="blog/{{blog.id}}/{{blog.slug}}">Read More</button>
+        <br>
+      </div>
+    </mat-card>
+  </div>
 </div>
