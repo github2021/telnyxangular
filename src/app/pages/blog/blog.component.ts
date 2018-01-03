@@ -14,10 +14,11 @@ import { Comment } from '../../shared/models/comment'
 })
 export class BlogComponent implements OnInit {
 
-  blogId: number
-  blog$: Observable < Blog >
-    comments: Comment[]
-  commentSent: boolean
+  blogId: number;
+  blog$: Observable < Blog >;
+  comments: Comment[];
+  commentSent: boolean;
+  panelOpenState: boolean = false;
 
   constructor(
     private title: Title,
@@ -36,7 +37,7 @@ export class BlogComponent implements OnInit {
 
       }
     })
-
+    window.scrollTo(0,0)
   }
 
   getBlog() {
@@ -52,7 +53,6 @@ export class BlogComponent implements OnInit {
   }
 
   commentSentFunction(x: any) {
-    //console.log(x)
     this.comments.push(x)
 
   }
