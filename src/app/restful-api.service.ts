@@ -32,6 +32,4 @@ export class RestfulApiService {
     return this.http.post < Comment > (API_URL + '/comments', comment)
   }
 
-
-
 }

@@ -17,10 +17,11 @@ export class BlogCommentsPostComponent implements OnInit {
   @Output() comment: EventEmitter < Comment > = new EventEmitter < Comment > ()
   private newComment: NgForm
 
-  step1TitleDisplay:boolean
+  step1TitleDisplay: boolean
 
 
-  constructor(private restfulApiService: RestfulApiService,
+  constructor(
+    private restfulApiService: RestfulApiService,
     public matSnackBar: MatSnackBar) {}
 
   ngOnInit() {}
@@ -36,11 +37,15 @@ export class BlogCommentsPostComponent implements OnInit {
 
   setStep(index: number) {
     this.step = index
-     if(index==1) { this.step1TitleDisplay = true }
+    if (index == 1) { this.step1TitleDisplay = true }
   }
 
-  nextStep(valid: any) {
-    if (valid) this.step++;
+  nextStep(valid: any, newComment) {
+    this.newComment = newComment
+    this.newComment.controls.content.markAsTouched()
+    this.newComment.controls.user.markAsTouched()
+
+    if (valid) { this.step++ }
   }
 
   prevStep() {
@@ -48,7 +53,7 @@ export class BlogCommentsPostComponent implements OnInit {
   }
 
 
-  postComment(newComment: NgForm) {
+  postComment(newComment: NgForm, finalControlValid) {
 
     this.newComment = newComment
     this.newComment.controls.content.markAsTouched()
@@ -67,8 +72,11 @@ export class BlogCommentsPostComponent implements OnInit {
       this.restfulApiService.postComment(commentToBeSent).subscribe()
       this.newComment.reset()
       this.openSnackBar()
-      this.step = 3
-
+      this.step++
+    } else {
+      if (finalControlValid) { this.step = 0 } else {
+        this.step = 1
+      }
     }
 
   }
