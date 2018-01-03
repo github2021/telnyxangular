@@ -1,16 +1,34 @@
-<form #newComment="ngForm" style="background-color: yellow; margin: 20px">
-  <div>
-    <label>Your Comment</label>
-    <br>
-    <textarea style="width:100%; max-width: 800px;" name="content" #content_formControl="ngModel" ngModel required minlength="10" maxlength="500" pattern="^[\- a-zA-Z0-9!@#$%^&*()_=+?<>.,&quot;\n\r]+$">
-    </textarea>
-    <app-blog-comments-post-show-errors [input_formControl]=content_formControl></app-blog-comments-post-show-errors>
-  </div>
-  <div style="margin-bottom: 20px">
-    <label>Your Username</label>
-    <br>
-    <input type="text" name="user" #user_formControl="ngModel" ngModel required minlength="3" maxlength="20" pattern="^\w[\-a-zA-Z0-9_ ]+$">
-    <app-blog-comments-post-show-errors [input_formControl]=user_formControl></app-blog-comments-post-show-errors>
-  </div>
-  <button (click)="postComment(newComment)">Submit</button>
+<form #newComment="ngForm">
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Post a Comment
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-full-width">
+        <textarea style="font-size: 20px" matInput placeholder="Comment" matTextareaAutosize matAutosizeMinRows=5 name="content" #content_formControl="ngModel" ngModel required minlength="10" maxlength="500" pattern="^[\- a-zA-Z0-9!@#$%^&*()_=+?<>.,&quot;\n\r]+$">
+        </textarea>
+      </mat-form-field>
+      <mat-action-row>
+        <app-blog-comments-post-show-errors [input_formControl]=content_formControl></app-blog-comments-post-show-errors>
+        <button mat-button color="primary" (click)="nextStep(content_formControl.valid)">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Username
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput type="text" name="user" #user_formControl="ngModel" ngModel required minlength="3" maxlength="20" pattern="^\w[\-a-zA-Z0-9_]+$">
+      </mat-form-field>
+      <mat-action-row>
+        <app-blog-comments-post-show-errors [input_formControl]=user_formControl></app-blog-comments-post-show-errors>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="postComment(newComment)">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
 </form>

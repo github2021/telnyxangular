@@ -26,7 +26,7 @@ export class BlogCommentsPostShowErrorsComponent implements OnInit {
     'required': () => 'This field is required',
     'minlength': (params: any) => 'Minimum ' + params.requiredLength + ' Characters Required',
     'maxlength': (params: any) => 'The max allowed number of characters is ' + params.requiredLength,
-    'pattern': () => 'Some special characters (for example \\ , \` , \'  ) are not allowed',
+    'pattern': () => 'Some special characters (for example \\ , \` , \'  ) are not allowed. Names cannot contain spaces',
     'custom': (errorObject: any) => errorObject.message,
   }
 

@@ -1,25 +1,49 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { RestfulApiService } from '../../../../restful-api.service'
 import { NgForm } from '@angular/forms'
+import { MatSnackBar } from '@angular/material'
 
 import { Comment } from '../../../../shared/models/comment'
 
 @Component({
   selector: 'app-blog-comments-post',
   templateUrl: './blog-comments-post.component.html',
-  styleUrls: ['./blog-comments-post.component.scss']
+  styleUrls: ['./blog-comments-post.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BlogCommentsPostComponent implements OnInit {
 
   @Input() blogId: number
   @Output() comment: EventEmitter < Comment > = new EventEmitter < Comment > ()
-  @Output() success: EventEmitter < boolean > = new EventEmitter < boolean > ()
   private newComment: NgForm
 
 
-  constructor(private restfulApiService: RestfulApiService) {}
+  constructor(private restfulApiService: RestfulApiService,
+    public matSnackBar: MatSnackBar) {}
 
   ngOnInit() {}
+
+  openSnackBar() {
+    this.matSnackBar.open("Comment has been posted", null, {
+      duration: 2000,
+      extraClasses: ['snackbar']
+    })
+  }
+
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep(valid: any) {
+    if (valid) this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
 
   postComment(newComment: NgForm) {
 
@@ -38,14 +62,15 @@ export class BlogCommentsPostComponent implements OnInit {
 
       this.comment.emit(commentToBeSent)
       this.restfulApiService.postComment(commentToBeSent).subscribe()
-      this.success.emit(true)
       this.newComment.reset()
+      this.openSnackBar()
+      this.step = 3
 
     }
 
   }
 
-private getCurrentDate(): string {  const date = new Date(); return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`}
+  private getCurrentDate(): string { const date = new Date(); return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}` }
 
 
 }
