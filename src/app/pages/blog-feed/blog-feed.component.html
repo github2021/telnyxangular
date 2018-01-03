@@ -2,7 +2,7 @@
   <div class="col-lg-8 display-4 margin_2_b">Blog Feed</div>
   <div class="col-lg-4 text-right margin_2_b">
     <mat-form-field>
-      <mat-select placeholder="Sorting Options" [formControl]="option">
+      <mat-select (change)="sortBlogs()" placeholder="Sorting Options" [formControl]="option">
         <mat-option value="newest">Newest</mat-option>
         <mat-option value="oldest">Oldest</mat-option>
       </mat-select>

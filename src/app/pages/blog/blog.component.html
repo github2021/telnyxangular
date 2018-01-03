@@ -8,7 +8,10 @@
     <br>
   </mat-card>
 </div>
-<app-blog-comments-post [blogId]="(blog$|async)?.id" (comment)="commentSentFunction($event)"> </app-blog-comments-post>
+
+<app-blog-comments-post [blogId]="(blog$|async)?.id" (comment)="commentSentFunction($event)"> 
+</app-blog-comments-post>
+
 <div *ngIf="commentSent"> Comment Sent </div>
 <div matheader class="margin_2_b margin_3_t display-4" style="padding-bottom: 20px"> Comments </div>
 <div *ngFor="let comment of comments">

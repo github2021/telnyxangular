@@ -33,8 +33,7 @@ import { BlogCommentsShowComponent } from './pages/blog/comments/blog-comments-s
 import { BlogCommentsPostComponent } from './pages/blog/comments/blog-comments-post/blog-comments-post.component';
 import { BlogCommentsPostShowErrorsComponent } from './pages/blog/comments/blog-comments-post-show-errors/blog-comments-post-show-errors.component';
 
-import { RestfulApiService } from './restful-api.service'
-
+import { RestfulApiService } from './restful-api.service';
 
 @NgModule({
   declarations: [

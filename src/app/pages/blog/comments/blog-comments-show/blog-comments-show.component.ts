@@ -8,7 +8,6 @@ import { Comment } from '../../../../shared/models/comment'
 })
 export class BlogCommentsShowComponent implements OnInit {
 
-
   @Input() comment: Comment
 
   constructor() {}

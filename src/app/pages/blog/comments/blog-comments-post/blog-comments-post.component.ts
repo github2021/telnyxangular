@@ -17,6 +17,8 @@ export class BlogCommentsPostComponent implements OnInit {
   @Output() comment: EventEmitter < Comment > = new EventEmitter < Comment > ()
   private newComment: NgForm
 
+  step1TitleDisplay:boolean
+
 
   constructor(private restfulApiService: RestfulApiService,
     public matSnackBar: MatSnackBar) {}
@@ -33,7 +35,8 @@ export class BlogCommentsPostComponent implements OnInit {
   step = 0;
 
   setStep(index: number) {
-    this.step = index;
+    this.step = index
+     if(index==1) { this.step1TitleDisplay = true }
   }
 
   nextStep(valid: any) {

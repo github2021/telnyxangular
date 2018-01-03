@@ -18,7 +18,7 @@
     <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Username
+          <span *ngIf="step1TitleDisplay">Please enter a username with no spaces</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-form-field>
@@ -27,7 +27,7 @@
       <mat-action-row>
         <app-blog-comments-post-show-errors [input_formControl]=user_formControl></app-blog-comments-post-show-errors>
         <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" (click)="postComment(newComment)">End</button>
+        <button mat-button color="primary" (click)="postComment(newComment)">Post Comment</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>

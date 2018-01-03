@@ -14,16 +14,16 @@ import { Blog } from '../../shared/models/blog'
 export class BlogFeedComponent implements OnInit {
 
   blogs: Blog[]
-  option = new FormControl('newest');
-
-  sortingOptions = [
-    { value: 'sort-0', viewValue: 'Newest' },
-    { value: 'sort-1', viewValue: 'Oldest' }
-  ];
+  option = new FormControl('newest')
 
   constructor(
     private restfulAPIService: RestfulApiService,
-    private title: Title) {}
+    private title: Title
+  ) {}
+
+  sortBlogs() {
+    this.blogs.reverse()
+  }
 
   ngOnInit() {
     this.title.setTitle("Blog Feed")

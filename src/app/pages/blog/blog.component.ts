@@ -7,6 +7,7 @@ import { RestfulApiService } from '../../restful-api.service'
 import { Blog } from '../../shared/models/blog'
 import { Comment } from '../../shared/models/comment'
 
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -15,7 +16,7 @@ import { Comment } from '../../shared/models/comment'
 export class BlogComponent implements OnInit {
 
   blogId: number;
-  blog$: Observable < Blog >;
+  blog$: Observable < Blog > ;
   comments: Comment[];
   commentSent: boolean;
   panelOpenState: boolean = false;
@@ -37,14 +38,14 @@ export class BlogComponent implements OnInit {
 
       }
     })
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
   getBlog() {
     this.blog$ = this.restfulAPIService.getBlog(this.blogId)
     this.restfulAPIService.getBlogComments(this.blogId).subscribe(data => {
+      data.sort(function(a, b) { return +b.id - +a.id })
       this.comments = data
-
     })
   }
 
@@ -53,13 +54,11 @@ export class BlogComponent implements OnInit {
   }
 
   commentSentFunction(x: any) {
-    this.comments.push(x)
-
+    this.comments.unshift(x)
   }
 
   commentSuccessful() {
     this.commentSent = true
-
   }
 
 }
