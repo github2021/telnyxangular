@@ -1,10 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatCardModule } from '@angular/material/card'
+import { MatTableModule } from '@angular/material/table'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { CdkTableModule } from '@angular/cdk/table'
+import { MatButtonModule } from '@angular/material/button'
+import {
+  MatExpansionModule,
+  MatInputModule,
+  MatSortModule,
+  MatSelectModule,
+  MatListModule,
+  MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSnackBarModule
+} from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -30,13 +47,32 @@ import { RestfulApiService } from './restful-api.service'
     BlogComponent,
     BlogCommentsShowComponent,
     BlogCommentsPostComponent,
-    BlogCommentsPostShowErrorsComponent
+    BlogCommentsPostShowErrorsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatCardModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatSortModule,
+    CdkTableModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatListModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule
+
+
   ],
   providers: [RestfulApiService],
   bootstrap: [AppComponent]
