@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  pages: any[]
 
-  ngOnInit() {
+  constructor() {
+
+    this.pages = [
+      { route: "home", title: "Home" },
+      { route: "about", title: "About" },
+      { route: "blog-feed", title: "Blog Feed" }
+    ]
+
   }
+
+  ngOnInit() {}
 
 }
