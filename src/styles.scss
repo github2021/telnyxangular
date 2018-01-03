@@ -1,12 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
 
-/**
- * Global application styles.
- */
-
-// Vendor
 @import "~bootstrap/scss/bootstrap.scss"; // v4: https://github.com/twbs/bootstrap
+@import "scss/base";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-// // Manifest
- @import "scss/base";
+body {
+	overflow-y:scroll;
+}
 
+.content {
+	min-height: 500px
+}
+
+$margin_1: 20px;
+
+.margin_1 {
+	margin: $margin_1
+}
+
+.margin_1_r_b_t {
+	margin: 0px $margin_1 $margin_1 $margin_1;
+}
+
+.margin_1_b {
+	margin-bottom: $margin_1;
+}
+
+.margin_1_t {
+	margin-top: $margin_1;
+}
+
+
+$margin_2: 30px;
+
+.margin_2_b {
+	margin-bottom: $margin_2;
+}
+
+$margin_3: 60px;
+
+.margin_3_b {
+	margin-bottom: $margin_3;
+}
+
+.margin_3_t {
+	margin-top: $margin_3;
+}
